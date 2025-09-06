@@ -1,0 +1,97 @@
+nav {
+  background-color: bisque;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cont1{
+  background-color: rgb(68, 68, 80);
+  text-align: center;
+}
+
+.cont1-movies,.cont1-shows{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cont1-content-text{
+  display: inline-flex;
+  gap: 2%;
+  padding: 2%;
+  justify-content: space-between;
+}
+
+.color1{
+  color: chartreuse;
+}
+.color2{
+  color:blueviolet;
+}
+.color3{
+  color:darkcyan;
+}
+.color4{
+  color:darkorange;
+}
+.color5{
+  color:yellow;
+}
+.color6{
+  color:red;
+}
+.color7{
+  color:hotpink;
+}
+
+.content-container{
+  display: block;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.movie,.show{
+  text-align: center;
+  border-radius: 15px;
+  padding: 5% 2% 5% 2%;
+  color: white;
+  background-color: black;
+}
+
+img{
+  height: 150px;
+  width: 200px;
+}
+
+.subtext{
+  color: white;
+  text-align: center;
+}
+
+.dropContainer{
+  width: 10%;
+  position: absolute;
+}
+
+.dropdownContent{
+  visibility:hidden;
+}
+
+.dropbtn{
+  text-align: center;
+  background-color: blueviolet;
+}
+
+.dropdownContent .link{
+  background-color: rgb(84, 84, 151);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
