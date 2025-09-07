@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import "../styles/index.scss";  // Fixed path
 import { useState } from "react";
 
@@ -21,9 +22,9 @@ function App() {
                             <a href="#" className="link">Movies</a>
                             <a href="#" className="link">TV Shows</a>
                             <a href="#" className="link">Favorites</a>
+                            <a href="/login" className="link">Login</a>
                         </div>
                     </div>
-                    <a href="/login" className="loginButton">Login</a>
                 </nav>
             </header>
 
@@ -41,7 +42,7 @@ function App() {
                     </div>
                     <div className="content-container">
                         <div className="cont1-movies">
-                            <MovieCard 
+                            <MovieCard
                                 image="/static/piratesofthecaribbean.jpeg"  // Added leading slash
                                 title="Pirates of the Caribbean" 
                             />
@@ -88,10 +89,12 @@ function App() {
 function MovieCard({ image, title }) {
     return (
         <div className="movie">
-            <div className="cont1-movie movie-pic">
-                <img src={image} alt={title} />
-            </div>
-            <div className="cont1-movie movie-text">{title}</div>
+            <a href="/MovieBox" className="movie-link">
+                <div className="cont1-movie movie-pic">
+                    <img src={image} alt={title} />
+                </div>
+                <div className="cont1-movie movie-text">{title}</div>
+            </a>
         </div>
     );
 }
