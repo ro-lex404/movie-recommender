@@ -1,6 +1,7 @@
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/index.scss";  // Fixed path
 import { useState } from "react";
+import "./MovieBox.jsx";
 
 function App() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -43,15 +44,18 @@ function App() {
                     <div className="content-container">
                         <div className="cont1-movies">
                             <MovieCard
-                                image="/static/piratesofthecaribbean.jpeg"  // Added leading slash
+                                id="000001"
+                                image="/static/piratesofthecaribbean.jpeg"
                                 title="Pirates of the Caribbean" 
                             />
                             <MovieCard 
-                                image="/static/fastandfurious5.jpeg"  // Added leading slash
+                                id="000002"
+                                image="/static/fastandfurious5.jpeg"
                                 title="Fast and Furious 5" 
                             />
                             <MovieCard 
-                                image="/static/toystory3.jpeg"  // Added leading slash
+                                id="000003"
+                                image="/static/toystory3.jpeg"
                                 title="Toy Story 3" 
                             />
                         </div>
@@ -67,15 +71,18 @@ function App() {
                         </div>
                         <div className="cont1-shows">
                             <MovieCard 
-                                image="/static/friends.jpeg"  // Added leading slash
+                                id="000004"
+                                image="/static/friends.jpeg"
                                 title="Friends" 
                             />
                             <MovieCard 
-                                image="/static/theoffice.jpeg"  // Added leading slash
+                                id="000005"
+                                image="/static/theoffice.jpeg"
                                 title="The Office" 
                             />
                             <MovieCard 
-                                image="/static/squidgame.jpeg"  // Added leading slash
+                                id="000006"
+                                image="/static/squidgame.jpeg"
                                 title="Squid Game" 
                             />
                         </div>
@@ -86,15 +93,27 @@ function App() {
     );
 }
 
-function MovieCard({ image, title }) {
+// Fixed: Changed from useMovieCard to MovieCard (proper component naming)
+function MovieCard({ id, image, title }) {
+    const navigate = useNavigate(); // Hook called at component level
+    
+    const handleMovieClick = () => {
+        // Navigate to MovieBox page with movie data
+        navigate(`/movie/${id}`, { 
+            state: { 
+                id: id,
+                title: title, 
+                image: image 
+            }
+        });
+    };
+
     return (
-        <div className="movie">
-            <a href="/MovieBox" className="movie-link">
-                <div className="cont1-movie movie-pic">
-                    <img src={image} alt={title} />
-                </div>
-                <div className="cont1-movie movie-text">{title}</div>
-            </a>
+        <div className="movie" onClick={handleMovieClick}>
+            <div className="cont1-movie movie-pic">
+                <img src={image} alt={title} />
+            </div>
+            <div className="cont1-movie movie-text">{title}</div>
         </div>
     );
 }
